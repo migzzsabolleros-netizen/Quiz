@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brain vs 5G: Identification Quiz</title>
+<style>
+:root{box-sizing:border-box;--bg:#f4f1ff;--card:#fff;--tx:#1d1a33;--mu:#6b6890;--ac:#6c4cf5;--ok:#17a673;--bad:#e5484d;--bd:#ddd8f7;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14122a;--card:#201d3d;--tx:#f1efff;--mu:#a29fcc;--ac:#9a82ff;--ok:#3ddc97;--bad:#ff6b70;--bd:#37336a}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;display:flex;justify-content:center;padding:16px}
+#app{width:100%;max-width:520px}
+.card{background:var(--card);border:2px solid var(--bd);border-radius:20px;padding:20px;margin-bottom:14px}
+h1{margin:0 0 4px;font-size:26px}p{margin:6px 0;color:var(--mu)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chip,.btn{border:2px solid var(--bd);background:var(--card);color:var(--tx);border-radius:14px;padding:10px 14px;font:inherit;font-weight:600;cursor:pointer}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.btn.main{background:var(--ac);border-color:var(--ac);color:#fff;width:100%;padding:14px;font-size:18px}
+.btn:active,.chip:active{transform:scale(.97)}
+.top{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px}
+.bar{height:10px;background:var(--bd);border-radius:9px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--ac);transition:width .3s}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--ac);text-transform:uppercase;letter-spacing:.05em}
+.q{font-size:20px;font-weight:700;margin:8px 0 14px}
+input{width:100%;font:inherit;font-size:18px;padding:12px;border-radius:12px;border:2px solid var(--bd);background:var(--bg);color:var(--tx)}
+input:focus{outline:none;border-color:var(--ac)}
+.fb{margin-top:12px;padding:12px;border-radius:12px;font-weight:700;animation:pop .3s}
+.fb.ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.fb.no{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.big{font-size:56px;text-align:center;margin:4px 0}.hint{color:var(--mu);font-family:monospace;letter-spacing:.15em}
+ul{padding-left:18px;margin:6px 0}li{margin:4px 0}
+</style></head><body><div id="app"></div>
+<script>
+const RAW=`#5G
+Which body sets 5G standards?|3GPP
+First 3GPP release to specify 5G NR?|Release 15|R15
+What does NR stand for?|New Radio
+ITU framework defining 5G vision and targets?|IMT-2020
+5G also serves industry, transport, healthcare and ___?|smart infrastructure
+Which generation used analog voice?|1G
+Which generation introduced digital voice and SMS?|2G
+Which generation introduced mobile internet?|3G
+Which generation brought all-IP broadband (~2009–10)?|4G|4G LTE
+1G-to-4G card tags: GSM, 3G and ___?|LTE
+Title of the 2010–2016 stage?|The Vision|Vision
+Research on massive MIMO and ___ grew in 2010–2016|mmWave
+ITU recommendation (2015) defining IMT-2020?|M.2083
+How many scenarios did IMT-2020 define?|3|three
+Title of the 2017–2018 stage?|First Standards
+Whose specs came first in late 2017?|NSA|Non-Standalone
+Which release delivered SA with a new core?|Release 15|R15
+Title of the 2019–2020 stage?|Commercial Launch
+Year 5G was first widely deployed?|2019
+Name one early 5G launcher country|~korea|~us|~united states
+Which release followed in June 2020?|Release 16|R16
+Title of the 2022-onward stage?|5G-Advanced
+Month and year of Release 17?|June 2022
+Releases 17/18 added satellite support and ___?|~AI-assisted|AI
+Research toward which generation began, expected ~2030?|6G
+How many core technologies are listed?|5|five
+Large antenna arrays serving many users?|Massive MIMO
+Focuses signals toward individual users?|Beamforming
+Splits one physical network into virtual networks?|Network Slicing
+Slices are tailored for low latency or ___?|high reliability|reliability
+Processing moved closer to the user?|Edge Computing
+Architecture relying on the 4G LTE core?|NSA|Non-Standalone
+Architecture with a new independent 5G core?|SA|Standalone
+Spell out NSA|Non-Standalone Architecture
+Spell out eMBB|Enhanced Mobile Broadband
+Streaming, cloud gaming, AR/VR, dense urban areas?|eMBB
+Spell out URLLC|Ultra-Reliable Low-Latency Communications
+Remote surgery, industrial automation, autonomous vehicles?|URLLC
+Spell out mMTC|Massive Machine-Type Communications
+Connects huge numbers of low-power IoT sensors?|mMTC
+Peak rate targeted by IMT-2020 (Gbps)?|20 Gbps|20
+Latency as low as about how many ms?|1 ms|1
+Devices per square km supported?|1 million|~million
+Faster speeds means ___-gigabit downloads|multi
+More users served with better energy efficiency?|Greater capacity|capacity
+Benefit that enables real-time control?|Ultra-low latency|low latency|latency
+#BCI
+System letting brain signals control an external device?|BCI|Brain-Computer Interface
+BCIs turn analyzed brain signals into ___?|usable commands|commands
+How many main BCI components?|4|four
+Entry point of the BCI pipeline?|Signal Acquisition
+Non-invasive method using scalp electrodes?|EEG|Electroencephalography
+Invasive acquisition uses what sensors?|microelectrodes
+Voltage fluctuations come from what?|neuronal activity|~neuron
+Raw brain signals are weak and prone to ___?|noise
+Device that digitizes the signal (abbr.)?|ADC
+Spell out ADC|Analog-to-Digital Converter
+Non-invasive sensor abbreviated MEG?|Magnetoencephalography
+Spell out fMRI|Functional Magnetic Resonance Imaging
+Spell out fNIRS|Functional Near-Infrared Spectroscopy
+Spell out ECoG|Electrocorticography
+Invasive sensor: arrays inside the cortex?|Intracortical Microelectrode Arrays|~intracortical
+Wireless invasive sensor listed?|Wireless Neurograins|Neurograins
+How many invasive sensors are listed?|3|three
+Turns raw digital signals into decisions?|Signal Processing and Classification|~processing
+Artifacts removed: eye blinks and ___?|muscle movements|~muscle
+Features: Power Spectral Density or ___?|band power
+Features across time, frequency or ___ domain?|spatial
+Spell out LDA|Linear Discriminant Analysis
+Spell out SVM|Support Vector Machines
+Algorithms identify the user’s ___?|intent
+How many core filtering phases?|3|three
+Filtering Phase 1?|Temporal Filtering|~temporal
+Filters: high-pass, low-pass and ___?|notch
+What does the notch filter remove?|power grid interference|~power
+Filtering Phase 2?|Spatial Filtering|~spatial
+Spatial methods: CAR, Laplacian, ICA and ___?|CSP
+Spatial filtering overcomes what?|volume conduction
+Filtering Phase 3?|Artifact Rejection and Thresholding|~artifact
+Regression cancels eye movement using which signal?|EOG
+Bridges classifier output to devices?|Application Interface
+Classifier outputs become what packets?|command protocol packets|~protocol
+Channels: USB, Bluetooth, TCP/IP and ___?|serial
+External device controlled by BCI commands?|User Application
+Example motorized mobility aid?|wheelchair|~wheelchair
+Return pathway for user monitoring?|feedback loop|feedback
+Feedback: visual, auditory or ___?|haptic
+Italian physician who discovered animal electricity?|Luigi Galvani|Galvani
+Year of that discovery?|1791
+Galvani laid the foundation of which field?|neurophysiology
+Hans Berger’s 1924 achievement?|first human EEG|~eeg
+Rhythm Berger captured?|alpha rhythms|alpha
+Who coined “brain-computer interface” (1973)?|Jacques Vidal|Vidal
+University where he worked?|UCLA
+1977 first practical BCI used what potential?|visually evoked potential|VEP|~visual
+In 1977 the user moved a cursor through a ___?|maze
+In 1988 EEG was used to command what?|physical robot|~robot
+Who invented the Utah Array (1989)?|Richard Normann|Normann
+Utah Array became the ___ standard|gold
+Electrode invented by Philip Kennedy?|neurotrophic electrode|neurotrophic
+First human implant patient (1998)?|Johnny Ray
+He moved what using his thoughts?|computer cursor|cursor
+Company that began BrainGate trials (2004)?|Cyberkinetics
+First severely paralyzed person to control a robotic arm?|Matt Nagle|Nagle
+Brazilian youth at the 2014 kickoff?|Juliano Pinto|Pinto
+Event of that 2014 kickoff?|FIFA World Cup|World Cup
+Device he used?|exoskeleton|~exoskeleton
+Stanford 2021 handwriting speed (characters/min)?|90
+Company advancing wireless BCIs from 2024?|Neuralink
+Label of the 2024–Current milestone?|Commercial Wireless Implants|~wireless
+Application Category 1?|Medical and Assistive Technologies|~medical
+Hands-free navigation for paralyzed users?|Motor Restoration and Mobility|~motor
+Motor restoration serves spinal injury, quadriplegia or ___?|stroke
+Turns brain activity into on-screen text?|spellers|~speller
+Spellers use P300 waves or ___?|motor imagery
+Locked-in patients include severe ___?|ALS
+Stroke rehab device named?|IpsiHand
+Neuro-rehab promotes which ability?|neuroplasticity
+Application Category 2 (emerging)?|Advanced Speech Decoding and High-Bandwidth Implants|~speech decoding
+Deep learning turns attempted speech into audio/text?|AI-Powered Thought-to-Speech|~thought
+Neuralink, Paradromics Connexus and ___?|Precision Neuroscience|~precision
+Application Category 3?|Consumer, Smart Home and Productivity|~consumer
+Adjusts lights and TVs via IoT?|Smart Home Control|~smart home
+Headbands track workload, focus, stress and ___?|fatigue
+Headband application for driver/pilot safety?|Cognitive and Mental Health Monitoring|~monitoring
+Gaming BCIs integrate into which headsets?|VR/AR|AR/VR|~vr
+Application Category 4?|Defense and Specialized Applications|~defense
+Military tests: drones, flight simulators and ___?|tactical robotic swarms|~swarm
+BCIs that both read and write sensory info?|Bi-directional BCIs|~bidirectional|Neuromodulation
+Technique that writes touch back to the brain?|microstimulation
+Advantage: restoring ___ for people with disabilities|independence
+Advantage: Direct Human-Machine ___|augmentation
+Advantage: Neuro-Rehabilitation and ___ Training|cognitive
+Advantage: Enhanced Military and ___ Safety|industrial
+Advantage: Real-Time ___ Synthesis|speech
+Disadvantage: Surgical Risks and ___ Degradation|tissue
+Spell out ITR|Information Transfer Rate
+Disadvantage: High Calibration Overhead and ___|BCI illiteracy|~illiteracy
+Term for brain-data security risks?|brainjacking
+Disadvantage: High ___ Costs and Complex Setup|development
+First challenge category?|Technical and Performance Bottlenecks|~technical
+Signal Interference, Low Information Speed and ___|Calibration and Signal Drift|~drift
+Second challenge category?|Privacy, Security and Ethics|~privacy
+Neural Data Privacy, Cybersecurity Risks and ___|Autonomy and Liability|~liability`;
+const ALL=[];let tp='';
+RAW.split('\n').forEach(l=>{if(l[0]=='#'){tp=l.slice(1);return}const p=l.split('|');ALL.push({q:p[0],a:p.slice(1),t:tp})});
+const NW={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+const norm=s=>s.toLowerCase().replace(/&/g,' and ').replace(/[“”"'’]/g,'').replace(/\b(one|two|three|four|five|six|seven|eight|nine|ten)\b/g,m=>NW[m]).replace(/^(the|a|an) /,'').replace(/[^a-z0-9]/g,'');
+function lev(a,b){const d=[];for(let i=0;i<=a.length;i++)d[i]=[i];for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[a.length][b.length]}
+function check(u,q){const n=norm(u);if(!n)return false;for(const a of q.a){if(a[0]=='~'){if(n.includes(norm(a.slice(1))))return true}else{const m=norm(a);if(n==m)return true;if(m.length>=6&&lev(n,m)<=(m.length>=14?2:1))return true}}return false}
+const $=document.getElementById('app'),S={topic:'Both',len:15},esc=s=>s.replace(/</g,'&lt;');
+const chips=(k,opts)=>opts.map(o=>`<button class="chip ${S[k]==o[0]?'on':''}" onclick="S.${k}=${typeof o[0]=='number'?o[0]:`'${o[0]}'`};menu()">${o[1]}</button>`).join('');
+function menu(){$.innerHTML=`<div class="card"><div class="big">🧠📶</div><h1 style="text-align:center">Brain vs 5G Quiz</h1><p style="text-align:center">Type the answer. Build streaks, earn points, beat your best score.</p></div>
+<div class="card"><b>Topic</b><div class="row">${chips('topic',[['Both','Both'],['5G','5G'],['BCI','Brain-Computer']])}</div><b>Round length</b><div class="row">${chips('len',[[10,'10'],[25,'25'],[999,'All']])}</div><button class="btn main" onclick="start()">Start game ▶</button></div>`}
+let G;
+function start(pool){const src=pool||ALL.filter(q=>S.topic=='Both'||q.t==S.topic);const qs=[...src].sort(()=>Math.random()-.5).slice(0,pool?src.length:S.len);G={qs,i:0,score:0,streak:0,best:0,right:0,miss:[],done:false,hint:false};show()}
+function show(){const q=G.qs[G.i];G.hint=false;G.done=false;
+$.innerHTML=`<div class="top"><span>⭐ ${G.score}</span><span>🔥 ${G.streak}</span><span>${G.i+1}/${G.qs.length}</span></div><div class="bar"><i style="width:${G.i/G.qs.length*100}%"></i></div>
+<div class="card"><span class="tag">${q.t=='BCI'?'Brain-Computer Interface':'5G Communications'}</span><div class="q">${esc(q.q)}</div><div id="h" class="hint"></div>
+<input id="in" autocomplete="off" autocapitalize="off" placeholder="Your answer…" onkeydown="if(event.key=='Enter')go()">
+<div class="row"><button class="btn main" id="go" onclick="go()" style="flex:1">Check</button><button class="btn" onclick="hint()">💡 Hint</button><button class="btn" onclick="skip()">Skip</button></div><div id="fb"></div></div>`;
+document.getElementById('in').focus()}
+function hint(){if(G.done||G.hint)return;G.hint=true;const a=G.qs[G.i].a.find(x=>x[0]!='~')||G.qs[G.i].a[0].slice(1);document.getElementById('h').textContent=a[0]+a.slice(1).replace(/[A-Za-z0-9]/g,' _').replace(/ /g,' ')+'  ('+a.length+' chars)'}
+function go(){if(G.done){return next()}const q=G.qs[G.i],v=document.getElementById('in').value;if(!v.trim())return;G.done=true;const ok=check(v,q),fb=document.getElementById('fb');
+if(ok){G.streak++;G.best=Math.max(G.best,G.streak);G.right++;const pts=10+Math.min(G.streak,5)*2-(G.hint?5:0);G.score+=pts;fb.innerHTML=`<div class="fb ok">✅ Correct! +${pts} ${G.streak>2?'🔥 '+G.streak+' streak!':''}</div>`}
+else{G.streak=0;G.miss.push(q);fb.innerHTML=`<div class="fb no">❌ Answer: ${esc(q.a.find(x=>x[0]!='~')||q.a[0].slice(1))}</div>`}
+document.getElementById('in').disabled=true;const b=document.getElementById('go');b.textContent=G.i+1<G.qs.length?'Next ▶':'Finish 🏁';b.focus()}
+function skip(){if(G.done)return;document.getElementById('in').value='—';G.done=true;G.streak=0;G.miss.push(G.qs[G.i]);document.getElementById('fb').innerHTML=`<div class="fb no">⏭ Answer: ${esc(G.qs[G.i].a.find(x=>x[0]!='~')||G.qs[G.i].a[0].slice(1))}</div>`;document.getElementById('in').disabled=true;document.getElementById('go').textContent=G.i+1<G.qs.length?'Next ▶':'Finish 🏁'}
+function next(){G.i++;G.i<G.qs.length?show():end()}
+function end(){const p=Math.round(G.right/G.qs.length*100),r=p>=90?['🏆','Legend!']:p>=70?['🎉','Great job!']:p>=50?['👍','Getting there!']:['📚','Keep studying!'];
+$.innerHTML=`<div class="card"><div class="big">${r[0]}</div><h1 style="text-align:center">${r[1]}</h1><p style="text-align:center">${G.right}/${G.qs.length} correct (${p}%) · ⭐ ${G.score} pts · best streak 🔥 ${G.best}</p></div>
+${G.miss.length?`<div class="card"><b>Review these (${G.miss.length})</b><ul>${G.miss.map(q=>`<li>${esc(q.q)} → <b>${esc(q.a.find(x=>x[0]!='~')||q.a[0].slice(1))}</b></li>`).join('')}</ul><button class="btn main" onclick="start(G.miss)">Retry missed ↻</button></div>`:''}
+<button class="btn main" onclick="menu()">Play again</button>`}
+menu();
+</script></body></html>
